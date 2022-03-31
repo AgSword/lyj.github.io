@@ -1,0 +1,52 @@
+spring:
+  thymeleaf:
+    # 关闭缓存
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/seckill?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=true
+    username: root
+    password: liyinjian320623,
+    hikari:
+      auto-commit: true
+      pool-name: DateHikariCP
+  redis:
+    host: 192.168.198.128
+  web:
+    # 静态资源处理
+    resources:
+      # 启动默认静态资源处理。默认启动
+      add-mappings: true
+      cache:
+        cachecontrol:
+          # 缓存相应时间，单位秒
+          max-age: 3600
+      chain:
+        # 资源链启动缓存，默认启动
+        cache: true
+        # 启动资源链，默认禁止
+        enabled: true
+        # 启动压缩资源
+        compressed: true
+  rabbitmq:
+    host: 192.168.198.128
+    username: admin
+    password: admin
+    port: 5672
+    # 监听器
+    listener:
+      simple:
+        # 启动时是否默认启动容器，默认为true
+        auto-startup: true
+        # 消费者最小数量
+        concurrency: 10
+        # 消费者最大数量
+        max-concurrency: 10
+        # 限制消费者每次只处理一条消息，处理完再继续下一条消息
+        prefetch: 1
+        # 被拒绝时直接进入队列
+        default-requeue-rejected: true
+    template:
+      retry:
+        enabled: true
+
