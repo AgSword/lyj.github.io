@@ -6,7 +6,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost/seckill?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=true
     username: root
-    password: liyinjian320623,
+    password: xxx
     hikari:
       auto-commit: true
       pool-name: DateHikariCP
